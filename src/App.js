@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    number: 0,
+  };
+
+  increaseNumberHandler = () => {
+    this.setState({ number: this.state.number + 1 });
+  };
+
+  resetNumberHandler = () => {
+    this.setState({ number: this.state.number === 0 });
+  };
+
+  decreaseNumberHandler = () => {
+    this.setState({ number: this.state.number - 1 });
+  };
+  render() {
+    const { number } = this.state;
+    return (
+      <div className="App">
+        <h1>Number: {number} </h1>
+        <button onClick={this.increaseNumberHandler}>Increase</button>
+
+        <button onClick={this.resetNumberHandler}>Reset</button>
+        <button onClick={this.decreaseNumberHandler}>Decrease</button>
+      </div>
+    );
+  }
 }
 
 export default App;
