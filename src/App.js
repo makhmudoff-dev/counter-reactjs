@@ -11,7 +11,7 @@ class App extends Component {
   };
 
   resetNumberHandler = () => {
-    this.setState({ number: this.state.number === 0 });
+    this.setState({ number: 0 });
   };
 
   decreaseNumberHandler = () => {
